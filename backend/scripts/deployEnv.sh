@@ -1,4 +1,5 @@
 #!/bin/bash
 SSH_CONFIG="${1}"
 PROJECT_PATH="${2}"
-scp -Cr .env "$SSH_CONFIG:${PROJECT_PATH}/current/backend"
+DEPLOY_PRIVATE_KEY="${3}"
+scp -Cr -i $DEPLOY_PRIVATE_KEY .env "$SSH_CONFIG:${PROJECT_PATH}/current/backend"
